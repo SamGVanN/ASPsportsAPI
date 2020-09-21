@@ -1,0 +1,30 @@
+﻿@model List<ASPsportsAPI.Models.League>
+
+
+
+<div class="">
+    <h1>Leagues</h1>
+
+    <div class="row">
+        @foreach (League l in Model)
+        {
+            <div class="table">
+                <tr>
+                    <td>
+                        @Html.DisplayNameFor(modelItem => l.strLeague):
+                        @Html.DisplayFor(modelItem => l.strLeague)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(modelItem => l.strLeagueAlternate):
+                        @Html.DisplayFor(modelItem => l.strLeagueAlternate)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayNameFor(modelItem => l.strSport):
+                        @Html.DisplayFor(modelItem => l.strSport)<br />
+                    </td>
+                </tr>
+            </div>
+        }
+    </div>
+
+</div>
