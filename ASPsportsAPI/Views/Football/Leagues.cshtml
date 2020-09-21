@@ -4,27 +4,44 @@
 
 <div class="">
     <h1>Leagues</h1>
+    <p>You can access the league informations.</p>
 
-    <div class="row">
-        @foreach (League l in Model)
-        {
-            <div class="table">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().strLeague)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().strLeagueAlternate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().strSport)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
                     <td>
-                        @Html.DisplayNameFor(modelItem => l.strLeague):
-                        @Html.DisplayFor(modelItem => l.strLeague)<br />
+                        @Html.DisplayFor(modelItem => item.strLeague)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(modelItem => l.strLeagueAlternate):
-                        @Html.DisplayFor(modelItem => l.strLeagueAlternate)<br />
+                        @Html.DisplayFor(modelItem => item.strLeagueAlternate)
                     </td>
                     <td>
-                        @Html.DisplayNameFor(modelItem => l.strSport):
-                        @Html.DisplayFor(modelItem => l.strSport)<br />
+                        @Html.DisplayFor(modelItem => item.strSport)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Details", "LeagueInformations", new { leagueId = item.idLeague })
                     </td>
                 </tr>
-            </div>
-        }
-    </div>
+            }
+        </tbody>
+    </table>
+
 
 </div>

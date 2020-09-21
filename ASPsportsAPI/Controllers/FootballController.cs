@@ -33,14 +33,34 @@ namespace ASPsportsAPI.Controllers
             };
 
             var json = httpClient.GetStringAsync("v1/json/1/all_leagues.php?s=Soccer").Result;
-            Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(json);
-           
+            Leagues myDeserializedClass = JsonConvert.DeserializeObject<Leagues>(json);
+
             model = myDeserializedClass.leagues;
 
             return View(model);
 
 
-    }
+        }
 
-}
+        [HttpGet]
+        public IActionResult LeagueInformations(string leagueId)
+        {
+            var model = new LeagueDetailed();
+
+            const string url = "https://www.thesportsdb.com/api/";
+            HttpClient httpClient = new HttpClient()
+            {
+                BaseAddress = new Uri(url)
+            };
+
+            var json = httpClient.GetStringAsync("v1/json/1/lookupleague.php?id="+leagueId).Result;
+            LeagueD myDeserializedClass = JsonConvert.DeserializeObject<LeagueD>(json);
+
+            model = myDeserializedClass.leagues.FirstOrDefault();
+
+            return View(model);
+
+        }
+
+    }
 }
