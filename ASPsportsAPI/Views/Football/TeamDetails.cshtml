@@ -1,0 +1,144 @@
+﻿@model ASPsportsAPI.Models.Team
+
+@{
+    ViewData["Title"] = "TeamDetails";
+}
+
+<h1>Team Details</h1>
+
+<div>
+    <h4>@Model.strTeam</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strTeam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strTeam)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strAlternate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strAlternate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.intFormedYear)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.intFormedYear)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strSport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strSport)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strLeague)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strLeague)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strManager)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strManager)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strStadium)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strStadium)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strKeywords)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strKeywords)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strRSS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strRSS)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strStadiumLocation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strStadiumLocation)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.intStadiumCapacity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.intStadiumCapacity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strWebsite)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strWebsite)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strFacebook)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strFacebook)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strTwitter)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strTwitter)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strInstagram)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strInstagram)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strDescriptionEN)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strDescriptionEN)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strGender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strGender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strCountry)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strCountry)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strTeamBadge)
+        </dt>
+        <dd class="col-sm-10">
+            <img src="@Url.Content(Model.strTeamBadge)" alt="Image" />
+            @*@Html.DisplayFor(model => model.strTeamBadge)*@
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strYoutube)
+        </dt>
+        <div class="col-sm-10">
+            <a href="@Model.strYoutube" target="_blank" @*rel="noopener noreferrer"*@>@Model.strTeam Youtube channel</a>
+        </div>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.strLocked)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.strLocked)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="LeagueTeams" asp-route-leagueName="@Model.strLeague">Back to @Model.strLeague</a>
+</div>

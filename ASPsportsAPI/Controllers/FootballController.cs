@@ -11,28 +11,62 @@ namespace ASPsportsAPI.Controllers
 {
     public class FootballController : Controller
     {
+        const string url = "https://www.thesportsdb.com/api/v1/json/1/";
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult League()
+        public IActionResult LeagueTeams(string leagueName)
         {
-            return View();
+
+            var model = new List<Team>();
+            HttpClient httpClient = new HttpClient()
+            {
+                BaseAddress = new Uri(url)
+            };
+            var json = httpClient.GetStringAsync("search_all_teams.php?l=" + leagueName).Result;
+            Teams myDeserializedClass = JsonConvert.DeserializeObject<Teams>(json);
+
+            model = myDeserializedClass.teams;
+
+            return View(model);
+
         }
+
+        public IActionResult TeamDetails(string idTeam)
+        {
+            var model = new Team();
+            HttpClient httpClient = new HttpClient()
+            {
+                BaseAddress = new Uri(url)
+            };
+            var json = httpClient.GetStringAsync("lookupteam.php?id=" + idTeam).Result;
+            Teams myDeserializedClass = JsonConvert.DeserializeObject<Teams>(json);
+
+            model = myDeserializedClass.teams.FirstOrDefault();
+            if (!model.strYoutube.StartsWith("http://"))
+            {
+                model.strYoutube = "http://" + model.strYoutube;
+            }
+
+            return View(model);
+        }
+        
 
 
         public IActionResult Leagues()
         {
             var model = new List<League>();
 
-            const string url = "https://www.thesportsdb.com/api/";
+            
             HttpClient httpClient = new HttpClient()
             {
                 BaseAddress = new Uri(url)
             };
 
-            var json = httpClient.GetStringAsync("v1/json/1/all_leagues.php?s=Soccer").Result;
+            var json = httpClient.GetStringAsync("all_leagues.php?s=Soccer").Result;
             Leagues myDeserializedClass = JsonConvert.DeserializeObject<Leagues>(json);
 
             model = myDeserializedClass.leagues;
@@ -47,13 +81,12 @@ namespace ASPsportsAPI.Controllers
         {
             var model = new LeagueDetailed();
 
-            const string url = "https://www.thesportsdb.com/api/";
             HttpClient httpClient = new HttpClient()
             {
                 BaseAddress = new Uri(url)
             };
 
-            var json = httpClient.GetStringAsync("v1/json/1/lookupleague.php?id="+leagueId).Result;
+            var json = httpClient.GetStringAsync("lookupleague.php?id="+leagueId).Result;
             LeagueD myDeserializedClass = JsonConvert.DeserializeObject<LeagueD>(json);
 
             model = myDeserializedClass.leagues.FirstOrDefault();

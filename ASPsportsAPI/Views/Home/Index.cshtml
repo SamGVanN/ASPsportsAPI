@@ -4,7 +4,7 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
-    <p>Rertouvez les informations sur les championnants de football grâce à cette application web.</p>
+    <p>Rertouvez les informations sur les championnats de football grâce à cette application web.</p>
     <p>Find informations about the soccer leagues using this web app.</p>   
 </div>
 
@@ -12,6 +12,18 @@
 
 <div class="">
     <h2>Leagues</h2>
-    <p>List <a asp-controller="Football"
-   asp-action="Leagues">all leagues</a></p>
+    <ul>
+        <li>
+            <p>
+                List <a asp-controller="Football"
+                        asp-action="Leagues">all leagues</a>
+            </p>
+        </li>
+        @*<li>
+            <p>
+                List <a asp-controller="Motorsport"
+                        asp-action="Leagues">all Motorsport leagues</a>
+            </p>
+        </li>*@
+    </ul>
 </div>

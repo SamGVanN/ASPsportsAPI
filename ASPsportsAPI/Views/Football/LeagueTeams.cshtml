@@ -1,0 +1,173 @@
+﻿@model IEnumerable<ASPsportsAPI.Models.Team>
+
+@{
+    ViewData["Title"] = "LeagueTeams";
+}
+
+<h1>@Model.FirstOrDefault().strCountry</h1>
+<h2>@Model.FirstOrDefault().strDivision</h2>
+<h3>@Model.FirstOrDefault().strLeague</h3>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.idTeam)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.idAPIfootball)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.strTeam)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.strAlternate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.intFormedYear)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.strSport)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strLeague)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.idLeague)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.strManager)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strStadium)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.strKeywords)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strRSS)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strStadiumLocation)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.intStadiumCapacity)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strWebsite)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strFacebook)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strTwitter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strInstagram)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strDescriptionEN)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strGender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.strCountry)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.strTeamBadge)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.strYoutube)
+                </th>*@
+            @*<th>
+                    @Html.DisplayNameFor(model => model.strLocked)
+                </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.idTeam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idAPIfootball)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.strTeam)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.strAlternate)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.intFormedYear)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.strSport)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strLeague)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.idLeague)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.strManager)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.strStadium)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.strKeywords)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strRSS)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strStadiumLocation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.intStadiumCapacity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strWebsite)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strFacebook)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strTwitter)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strInstagram)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strDescriptionEN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strGender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.strCountry)
+                    </td>*@
+            <td>
+                <img src="@Url.Content(item.strTeamBadge)" alt="Image" />
+                @*@Html.DisplayFor(modelItem => item.strTeamBadge)*@
+            </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.strYoutube)
+                    </td>*@
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.strLocked)
+                    </td>*@
+                <td>
+                    @Html.ActionLink("Details", "TeamDetails", new { idteam =item.idTeam })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
