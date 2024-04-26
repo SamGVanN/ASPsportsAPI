@@ -38,6 +38,9 @@
                     <td>
                         @Html.ActionLink("Details", "LeagueInformations", new { leagueId = item.idLeague })
                     </td>
+                    <td>
+                        @Html.ActionLink("Teams", "LeagueTeams", new { leagueName = item.strLeague })
+                    </td>
                 </tr>
             }
         </tbody>
