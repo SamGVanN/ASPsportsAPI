@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 namespace ASPsportsAPI.Models
 {
 
-
-    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse); 
     public class League
     {
-        public int idLeague { get; set; }
+        public string idLeague { get; set; }
+
         [Display(Name = "League Name")]
         public string strLeague { get; set; }
 
@@ -123,7 +122,7 @@ namespace ASPsportsAPI.Models
         [Display(Name = "Leagues")]
         public List<League> leagues { get; set; }
     }
-    public class LeagueD
+    public class LeagueDetails
     {
         [Display(Name = "Leagues in detail")]
         public List<LeagueDetailed> leagues { get; set; }
