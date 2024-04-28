@@ -49,7 +49,7 @@ namespace ASPsportsAPI.Controllers
                 BaseAddress = new Uri(url)
             };
 
-            var json = httpClient.GetStringAsync("lookupleague.php?id="+leagueId).Result;
+            var json = httpClient.GetStringAsync("lookupleague.php?id=" + leagueId).Result;
             LeagueDetails myDeserializedClass = JsonSerializer.Deserialize<LeagueDetails>(json);
 
             model = myDeserializedClass.leagues.FirstOrDefault();

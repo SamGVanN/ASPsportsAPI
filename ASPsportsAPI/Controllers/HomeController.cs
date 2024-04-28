@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ASPsportsAPI.Models;
+using System.Diagnostics;
 
 namespace ASPsportsAPI.Controllers
 {
